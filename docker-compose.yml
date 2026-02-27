@@ -41,5 +41,12 @@ services:
       - web
       - redis
 
+  celery-beat:
+    build:
+    command: celery -A library_system beat -l info
+    depends_on:
+      - web
+      - redis
+
 volumes:
   postgres_data:
